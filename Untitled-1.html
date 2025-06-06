@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Benjamin AMIRTHANATHAN - Étudiant en GEII</title>
+    <style>
+        /* Reset CSS */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Base styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom right, #EFF6FF, #E0E7FF);
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+            }
+        }
+
+        .nav-link {
+            color: #4B5563;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #2563EB;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #2563EB;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 1.5rem;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #2563EB;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #D1D5DB;
+            color: #111827;
+        }
+
+        .btn-outline:hover {
+            background-color: #F3F4F6;
+        }
+
+        .icon {
+            margin-right: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Section styles */
+        section {
+            padding: 4rem 1rem;
+        }
+
+        section h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #111827;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Card styles */
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-description {
+            color: #6B7280;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+
+        .badge-secondary {
+            background-color: #E5E7EB;
+            color: #4B5563;
+        }
+
+        .badge-blue {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .badge-green {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .badge-purple {
+            background-color: #EDE9FE;
+            color: #5B21B6;
+        }
+
+        .badge-yellow {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+
+        .badge-red {
+            background-color: #FEE2E2;
+            color: #B91C1C;
+        }
+
+        .badge-indigo {
+            background-color: #E0E7FF;
+            color: #3730A3;
+        }
+
+        .badge-pink {
+            background-color: #FCE7F3;
+            color: #9D174D;
+        }
+
+        .badge-orange {
+            background-color: #FFEDD5;
+            color: #9A3412;
+        }
+
+        .badge-outline {
+            background-color: transparent;
+            border: 1px solid #D1D5DB;
+            color: #4B5563;
+        }
+
+        /* About section */
+        .about-text {
+            font-size: 1.125rem;
+            color: #4B5563;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+        }
+
+        /* Skills section */
+        .bg-white-30 {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .skill-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 0.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Languages section */
+        .progress-container {
+            width: 100%;
+            background-color: #E5E7EB;
+            border-radius: 9999px;
+            height: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            border-radius: 9999px;
+            background-color: #2563EB;
+        }
+
+        /* Education section */
+        .timeline {
+            position: relative;
+            border-left: 2px solid #2563EB;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            background-color: #2563EB;
+            border-radius: 50%;
+            left: -0.5625rem;
+            top: 0.25rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .timeline-subtitle {
+            color: #4B5563;
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: #6B7280;
+        }
+
+        /* Projects section */
+        .project-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Contact section */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-label {
+            font-weight: 500;
+        }
+
+        .contact-value {
+            font-size: 0.875rem;
+            color: #4B5563;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4B5563;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: #2563EB;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: #9CA3AF;
+        }
+
+        /* Utility classes */
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .gap-1 {
+            gap: 0.25rem;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .gap-3 {
+            gap: 0.75rem;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .gap-8 {
+            gap: 2rem;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .text-gray-500 {
+            color: #6B7280;
+        }
+
+        .text-gray-600 {
+            color: #4B5563;
+        }
+
+        .text-gray-800 {
+            color: #1F2937;
+        }
+
+        .text-gray-900 {
+            color: #111827;
+        }
+
+        .text-blue-600 {
+            color: #2563EB;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .max-w-2xl {
+            max-width: 42rem;
+        }
+
+        .max-w-3xl {
+            max-width: 48rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+
+        .list-disc {
+            list-style-type: disc;
+        }
+
+        .pl-5 {
+            padding-left: 1.25rem;
+        }
+
+        .hover\:underline:hover {
+            text-decoration: underline;
+        }
+
+        .bg-white-50 {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfolio Benjamin AMIRTHANATHAN</div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">À propos</a>
+                    <a href="#skills" class="nav-link">Compétences</a>
+                    <a href="#projects" class="nav-link">Projets</a>
+                    <a href="#education" class="nav-link">Formation</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="avatar">BA</div>
+        <h1>Benjamin AMIRTHANATHAN</h1>
+        <p>Étudiant en GEII, passionné par l’informatique, l’aérospatial, la robotique, l’automatisation, les systèmes embarqués et la cybersécurité.</p>
+        <div class="button-group">
+            <a href="#" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Télécharger CV
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                Me contacter
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>À propos de moi</h2>
+            <div class="grid grid-cols-2">
+                <div>
+                    <p class="about-text">
+                        Étudiant en Bachelor Génie Electrique et Informatique Industrielle à l'IUT Villetaneuse, j'aspire à
+                        contribuer à l'industrie 4.0, spécifiquement dans la robotique, l'automatisation, et la cybersécurité
+                        incluant les secteurs de l'aéronautique, de l'espace et de la défense.
+                    </p>
+                    <p class="about-text">
+                        Je m'intéresse à la veille technologique, notamment l'intelligence artificielle, le Big Data, et les
+                        avancées en aérospatial. À 19 ans, je suis passionné par les nouvelles technologies et l'innovation.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge badge-secondary">GEII</span>
+                        <span class="badge badge-secondary">Robotique</span>
+                        <span class="badge badge-secondary">Cybersécurité</span>
+                        <span class="badge badge-secondary">Automatisation</span>
+                        <span class="badge badge-secondary">IA</span>
+                    </div>
+                </div>
+                <div class="card bg-white-50 backdrop-blur-sm">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8.21 13.89L7 23l9-9"></path>
+                                <path d="M19 8.85l-1.44 1.13a5 5 0 0 1-6.42-.34L9 8"></path>
+                                <path d="M15 2H9v2l3 3 3-3V2z"></path>
+                            </svg>
+                            Qualités
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge badge-blue">Persévérant</span>
+                            <span class="badge badge-green">Consciencieux</span>
+                            <span class="badge badge-purple">Curieux</span>
+                            <span class="badge badge-yellow">Travailleur</span>
+                            <span class="badge badge-red">Soif d'apprendre</span>
+                            <span class="badge badge-indigo">Capacité d'adaptation</span>
+                            <span class="badge badge-pink">Productif</span>
+                            <span class="badge badge-orange">Perfectionniste</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-white-30">
+        <div class="container">
+            <h2>Compétences</h2>
+            <div class="grid grid-cols-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="skill-icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <div class="card-title">Programmation (en apprentissage)</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="space-y-2">
+                            <span class="badge badge-outline">HTML/CSS</span>
+                            <span class="badge badge-outline">Python</span>
+                            <span class="badge badge-outline">C/C++</span>
+                            <span class="badge badge-outline">JSON</span>
+                            <span class="badge badge-outline">SQL</span>
+                            <span class="badge badge-outline">Java</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="skill-icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="2" x2="9" y2="4"></line>
+                            <line x1="15" y1="2" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="22"></line>
+                            <line x1="15" y1="20" x2="15" y2="22"></line>
+                            <line x1="20" y1="9" x2="22" y2="9"></line>
+                            <line x1="20" y1="14" x2="22" y2="14"></line>
+                            <line x1="2" y1="9" x2="4" y2="9"></line>
+                            <line x1="2" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                        <div class="card-title">Systèmes & Outils</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="space-y-2">
+                            <span class="badge badge-outline">Windows</span>
+                            <span class="badge badge-outline">Linux</span>
+                            <span class="badge badge-outline">Ubuntu</span>
+                            <span class="badge badge-outline">Kali Linux/Parrot OS</span>
+                            <span class="badge badge-outline">Archi Linux</span>
+                            <span class="badge badge-outline">Visual Studio Code</span>
+                            <span class="badge badge-outline">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="skill-icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                        <div class="card-title">Électronique</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="space-y-2">
+                            <span class="badge badge-outline">Quartus</span>
+                            <span class="badge badge-outline">PCIM</span>
+                            <span class="badge badge-outline">Soudure</span>
+                            <span class="badge badge-outline">Circuits électroniques</span>
+                            <span class="badge badge-outline">Domotique</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="skill-icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        <div class="card-title">Autres compétences</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="space-y-2">
+                            <span class="badge badge-outline">Cybersécurité</span>
+                            <span class="badge badge-outline">Montage vidéo/audio</span>
+                            <span class="badge badge-outline">Virtualisation</span>
+                            <span class="badge badge-outline">Intelligence Artificielle</span>
+                            <span class="badge badge-outline">Maintenance hardware/software</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section>
+        <div class="container">
+            <h2>Langues</h2>
+            <div class="grid grid-cols-2 max-w-3xl mx-auto">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Français</span>
+                                    <span class="text-sm text-gray-500">C1 - Courant</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Anglais</span>
+                                    <span class="text-sm text-gray-500">B2 - Avancé</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Allemand</span>
+                                    <span class="text-sm text-gray-500">A2 - Intermédiaire</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">Tamoul</span>
+                                    <span class="text-sm text-gray-500">Langue maternelle</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h4 class="font-medium mb-2">Loisirs</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="badge badge-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 18V5l12-2v13"></path>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <circle cx="18" cy="16" r="3"></circle>
+                                        </svg>
+                                        Piano Arrangeur
+                                    </span>
+                                    <span class="badge badge-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 18V5l12-2v13"></path>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <circle cx="18" cy="16" r="3"></circle>
+                                        </svg>
+                                        Guitare
+                                    </span>
+                                    <span class="badge badge-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 18V5l12-2v13"></path>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <circle cx="18" cy="16" r="3"></circle>
+                                        </svg>
+                                        Batterie
+                                    </span>
+                                    <span class="badge badge-secondary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                        </svg>
+                                        Voyages
+                                    </span>
+                                    <span class="badge badge-secondary">Sports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="bg-white-30">
+        <div class="container">
+            <h2>Formation</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">BUT Génie Electrique Informatique Industrielle (GEII)</h3>
+                        <p class="timeline-subtitle">Université Sorbonne Paris Nord - IUT Villetaneuse</p>
+                        <p class="timeline-date">09/2024 - Présent | Villetaneuse, France</p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-dot"></div>
+                    <div>
+                        <h3 class="timeline-title">Baccalauréat Général avec spécialités Mathématiques et physique-chimie</h3>
+                        <p class="timeline-subtitle">Lycée Louise Michel</p>
+                        <p class="timeline-date">09/2021 - 07/2024 | Bobigny, France</p>
+                        <div class="mt-4">
+                            <h4 class="font-semibold">Expériences scolaires notables :</h4>
+                            <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                                <li>Participation à l'atelier MathsEnJeans</li>
+                                <li>Réalisation d'un journal (conception du Chemin de Fer)</li>
+                                <li>Visite des coulisses de France TV télévision</li>
+                                <li>
+                                    Vidéo - Le virus et nos cellules :
+                                    <a href="https://www.youtube.com/live/W4JJpRSnG54?feature=shared" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                                        Voir la vidéo
+                                    </a>
+                                </li>
+                                <li>Randonnée en Montagne (en 3 Jours) à Briançon : Hautes-Alpes</li>
+                                <li>
+                                    Conférence mathématique à la BNF :
+                                    <a href="https://www.youtube.com/live/FHODqIyxGR8?feature=shared" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                                        Voir la conférence
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Mes Projets</h2>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="project-title">
+                            <h3>Projet ALARME : Code digital</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-sm text-gray-600 mb-4">
+                            Conception et développement d'un système d'alarme avec code digital.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-sm mb-1">Soft Skills développés :</h4>
+                            <p class="text-sm text-gray-600">
+                                Patience, persévérance, rigueur dans la conception électronique
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm mb-1">Hard Skills acquis :</h4>
+                            <p class="text-sm text-gray-600">
+                                Utilisation du logiciel Quartus pour la conception, la vérification et la simulation de circuits
+                                électroniques
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="project-title">
+                            <h3>Projet ROOMBA : Aspirateur robot</h3> 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-sm text-gray-600 mb-4">
+                            Développement d'un aspirateur robot autonome avec capacités de navigation.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-sm mb-1">Soft Skills développés :</h4>
+                            <p class="text-sm text-gray-600">
+                                Méthodologie, persévérance, capacité à lire et comprendre des schémas électroniques, développement
+                                de réflexes et d'une activité intellectuelle constante lors des manipulations
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm mb-1">Hard Skills acquis :</h4>
+                            <p class="text-sm text-gray-600">Recherches précises, programmation en langage C et Python</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="project-title">
+                            <h3>Projet VÉLO : Convertisseur Continu (Hacheur)</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-sm text-gray-600 mb-4">
+                            Conception d'un convertisseur continu (hacheur) pour application vélo électrique.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-sm mb-1">Soft Skills développés :</h4>
+                            <p class="text-sm text-gray-600">
+                                Écoute active, ouverture d'esprit (développement d'idées pour des projets personnels)
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm mb-1">Hard Skills acquis :</h4>
+                            <p class="text-sm text-gray-600">
+                                PCIM (logiciel de simulation), maîtrise de la soudure (précision, utilisation de la conduction
+                                métallique)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="project-title">
+                            <h3>Projet ROBOT : Voiture Télécommandé</h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-sm text-gray-600 mb-4">
+                            Montage d'un petit robot intelligent avec l'utilisation du logiciel ARDUINO IDE.
+                            Planification de différents rôles et tâches de notre groupe avec Gantt Project.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-sm mb-1">Soft Skills développés :</h4>
+                            <p class="text-sm text-gray-600">
+                                Travail en équipe, gestion du temps.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm mb-1">Hard Skills acquis :</h4>
+                            <p class="text-sm text-gray-600">
+                                C, moteurs DC, RF, montage électronique.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="bg-white-30">
+        <div class="container">
+            <h2>Expériences</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="card mb-6">
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Contact avec l'association Femmes Relais</h3>
+                        <p class="text-sm text-gray-500 mb-2">2014 - Présent</p>
+                        <p class="text-gray-600">
+                            Soutien informatique aux personnes en difficulté, ce qui a renforcé mes compétences en assistance
+                            technique et gestion administration.
+                        </p>
+                    </div>
+                </div>
+                <div class="card mb-6">
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Bénévole Association Moisson</h3>
+                        <p class="text-sm text-gray-500 mb-2">01/2020 - 07/2020</p>
+                        <p class="text-gray-600">Redistribution fruits et légumes (anti-gaspillages)</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="text-xl font-bold">Commis de cuisine pendant les vacances d'été</h3>
+                        <p class="text-sm text-gray-500 mb-2">06/2019 - 08/2019 | Noisy-Le-Sec, France</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="card bg-white-50 backdrop-blur-sm">
+                    <div class="card-content p-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="contact-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="contact-label">Email</p>
+                                        <p class="contact-value">ben.uspn93@yahoo.com</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    <div>
+                                        <p class="contact-label">Localisation</p>
+                                        <p class="contact-value">Paris, France</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                    </svg>
+                                    <div>
+                                        <p class="contact-label">Âge</p>
+                                        <p class="contact-value">19 ans</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="font-semibold text-lg">Réseaux sociaux</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                        </svg>
+                                        GitHub
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                            <rect x="2" y="9" width="4" height="12"></rect>
+                                            <circle cx="4" cy="4" r="2"></circle>
+                                        </svg>
+                                        LinkedIn
+                                    </a>
+                                </div>
+                                <div class="pt-4">
+                                    <a href="mailto:ben.uspn93@yahoo.com" class="btn btn-primary w-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                        </svg>
+                                        Envoyer un message
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2024 Benjamin AMIRTHANATHAN - Étudiant en GEII. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
